@@ -1,0 +1,91 @@
+﻿<Window x:Class="OfficeFitness.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OfficeFitness.View"
+        xmlns:viewModel="clr-namespace:OfficeFitness.ViewModel"
+        mc:Ignorable="d"
+        Title="{StaticResource AppName}" MinHeight="700" Width="800">
+
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFB4D3A3" Offset="0.375"/>
+                <GradientStop Color="#FF9DDC7C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition  Height="0.4*"/>
+            <RowDefinition/>
+            <RowDefinition  Height="0.4*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="4">
+            <TextBlock FontSize="32" Foreground="DarkGreen" HorizontalAlignment="Center" FontFamily="Segoe Script">Приложение для офисных разминок</TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock FontSize="18" Foreground="DarkGreen" HorizontalAlignment="Center"  VerticalAlignment="Center" FontFamily="Segoe Script">Настройки</TextBlock>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+            <WrapPanel Orientation="Vertical">
+                <TextBlock FontSize="18" Foreground="DarkGreen" FontFamily="Segoe Script">Выбор упражнений:</TextBlock>
+                <ListBox ItemsSource="{Binding Sections}" SelectedItem="{Binding SelectedSection}" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel  VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem IsSelected="{Binding IsChecked}">
+                                <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Path=Name}" BorderBrush="{x:Null}" />
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+            <WrapPanel Orientation="Vertical">
+                <TextBlock FontSize="18" Foreground="DarkGreen" FontFamily="Segoe Script">Выбор интервала между разминками:</TextBlock>
+                <RadioButton GroupName="interval" Name="rb30m" Content="30 минут" FontSize="16"  IsChecked="True"/>
+                <RadioButton GroupName="interval" Name="rb60m" Content="60 минут" FontSize="16"/>
+                <RadioButton GroupName="interval" Name="rb90m" Content="90 минут" FontSize="16"/>
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="3">
+            <Button Height="50" Width="150" Content="Запустить таймер" Background="#FF75BA7B" FontSize="16"/>
+        </Grid>
+
+        <Grid Grid.Column="2" Grid.Row="3">
+            <Button Height="50" Width="150" Content="Остановить таймер" IsEnabled="False" Background="#FFB5D34D" FontSize="16"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
+            <TextBlock FontSize="36" Foreground="DarkGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Script" 
+                       Text="{Binding TimeFromStart}"/>
+        </Grid>
+
+    </Grid>
+
+
+
+</Window>
