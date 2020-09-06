@@ -1,6 +1,5 @@
 ﻿using OfficeFitness.Utils;
 using OfficeFitness.ViewModel;
-using System;
 using System.Collections.Generic;
 using System.Windows;
 
