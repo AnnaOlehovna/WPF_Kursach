@@ -44,8 +44,8 @@
 
         <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
             <WrapPanel Orientation="Vertical">
-                <TextBlock FontSize="18" Foreground="DarkGreen" FontFamily="Segoe Script">Выбор упражнений:</TextBlock>
-                <ListBox ItemsSource="{Binding Sections}" SelectedItem="{Binding SelectedSection}" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TextBlock FontSize="16" Foreground="DarkGreen" FontFamily="Segoe Script" TextWrapping="Wrap">Выбор упражнений (для разминки используется 5 упражнений из выбранного списка):</TextBlock>
+                <ListBox ItemsSource="{Binding Sections}" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel  VerticalAlignment="Center"/>
@@ -64,24 +64,29 @@
 
         <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
             <WrapPanel Orientation="Vertical">
-                <TextBlock FontSize="18" Foreground="DarkGreen" FontFamily="Segoe Script">Выбор интервала между разминками:</TextBlock>
-                <RadioButton GroupName="interval" Name="rb30m" Content="30 минут" FontSize="16"  IsChecked="True"/>
-                <RadioButton GroupName="interval" Name="rb60m" Content="60 минут" FontSize="16"/>
-                <RadioButton GroupName="interval" Name="rb90m" Content="90 минут" FontSize="16"/>
+                <TextBlock FontSize="16" Foreground="DarkGreen" FontFamily="Segoe Script">Выбор интервала между разминками:</TextBlock>
+                <RadioButton GroupName="interval" Name="rb1m" Content="10 секунд (для теста)" FontSize="16"
+                              Command="{Binding Path=SelectIntervalCommand}" CommandParameter="{Binding ElementName=rb1m, Path=Name}"/>
+                <RadioButton GroupName="interval" Name="rb30m" Content="30 минут" FontSize="16"
+                             Command="{Binding Path=SelectIntervalCommand}" CommandParameter="{Binding ElementName=rb30m, Path=Name}"/>
+                <RadioButton GroupName="interval" Name="rb60m" Content="60 минут" FontSize="16"
+                              Command="{Binding Path=SelectIntervalCommand}" CommandParameter="{Binding ElementName=rb60m, Path=Name}"/>
+                <RadioButton GroupName="interval" Name="rb90m" Content="90 минут" FontSize="16"
+                              Command="{Binding Path=SelectIntervalCommand}" CommandParameter="{Binding ElementName=rb90m, Path=Name}"/>
             </WrapPanel>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="3">
-            <Button Height="50" Width="150" Content="Запустить таймер" Background="#FF75BA7B" FontSize="16"/>
+            <Button Height="50" Width="150" Content="Запустить таймер" Background="#FF75BA7B" FontSize="16" Command="{Binding StartTimerCommand}"/>
         </Grid>
 
         <Grid Grid.Column="2" Grid.Row="3">
-            <Button Height="50" Width="150" Content="Остановить таймер" IsEnabled="False" Background="#FFB5D34D" FontSize="16"/>
+            <Button Height="50" Width="150" Content="Остановить таймер"  Command="{Binding StopTimerCommand}" Background="#FFB5D34D" FontSize="16"/>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
             <TextBlock FontSize="36" Foreground="DarkGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Script" 
-                       Text="{Binding TimeFromStart}"/>
+                       Text="{Binding TimeLeft}"/>
         </Grid>
 
     </Grid>

@@ -10,24 +10,24 @@ namespace DataLayer.EFContext
             context.Exercises.AddRange(new Exercise[]{
                 new Exercise
                 {
-                   Name = "Растяжка спины вперед",
+                   Name = "Растяжка спины",
                    Description = "Эта растяжка также известна как ромбовидная растяжка верхней части спины.\n" +
                    "1. Сцепите руки перед собой и опустите голову на одном уровне с руками.\n" +
                    "2. Потянитесь вперед и удерживайтесь в таком положении от 10 до 30 секунд.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Forward_Stretch.gif"
+                   ImageUri = "/Resources/Forward_Stretch.gif"
 
                 },
                  new Exercise
                 {
                      Name = "Растяжка подколенных сухожилий",
-                   Description = "1. Сядьте на стул, вытяните одну ногу наружу.\n" +
+                   Description = "1. Сядьте на стул, вытяните одну ногу вперед.\n" +
                    "2. Потянитесь к пальцам ног.\n" +
                    "3. Задержитесь на 10 - 30 секунд.\n" +
                    "4. Повторите с другой стороны.\n" +
                    "Обязательно выполняйте это упражнение по одной ноге, поскольку выполнение этого упражнения с двумя вытянутыми ногами может вызвать проблемы со спиной.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Hamstring_Stretch.gif"
+                   ImageUri = "/Resources/Hamstring_Stretch.gif"
 
                 },
                  new Exercise
@@ -38,7 +38,7 @@ namespace DataLayer.EFContext
                    "3. Повторите с другой стороны.\n" +
                    "4. Снова расслабьтесь и верните подбородок в исходное положение.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Neck_Stretch.gif"
+                   ImageUri = "/Resources/Neck_Stretch.gif"
 
                 },
                   new Exercise
@@ -49,7 +49,7 @@ namespace DataLayer.EFContext
                    "3. Задержитесь на 10 - 30 секунд.\n" +
                    "4. Повторите с другой стороны.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Overhead_Reach.gif"
+                   ImageUri = "/Resources/Overhead_Reach.gif"
 
                 },
                   new Exercise
@@ -59,7 +59,7 @@ namespace DataLayer.EFContext
                    "2. Вытолкните грудь наружу и поднимите подбородок.\n" +
                    "3. Задержитесь на 10 - 30 секунд.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Shoulder_Pec_Stretch.gif"
+                   ImageUri = "/Resources/Shoulder_Pec_Stretch.gif"
 
                 },
                   new Exercise
@@ -68,7 +68,7 @@ namespace DataLayer.EFContext
                    Description = "1. Поднимите оба плеча к ушам.\n" +
                    "2. Сросьте их вниз и повторите.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Shoulder_Shrug.gif"
+                   ImageUri = "/Resources/Shoulder_Shrug.gif"
 
                 },
                   new Exercise
@@ -80,7 +80,7 @@ namespace DataLayer.EFContext
                    "4. Задержитесь на 10 - 30 секунд.\n"+
                    "5. Повторите с другой стороны.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Torso_Stretch.gif"
+                   ImageUri = "/Resources/Torso_Stretch.gif"
 
                 },
                   new Exercise
@@ -91,7 +91,7 @@ namespace DataLayer.EFContext
                    "3. Задержитесь на 10 - 30 секунд.\n"+
                    "4. Повторите с другой стороны.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Triceps_Stretch.gif"
+                   ImageUri = "/Resources/Triceps_Stretch.gif"
 
                 },
                    new Exercise
@@ -101,7 +101,7 @@ namespace DataLayer.EFContext
                    "2. Поднимите руки вверх, потянувшись вверх.\n" +
                    "3. Задержитесь на 10 - 30 секунд.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Upper_Body_Stretch.gif"
+                   ImageUri = "/Resources/Upper_Body_Stretch.gif"
                 },
                    new Exercise
                 {
@@ -111,7 +111,7 @@ namespace DataLayer.EFContext
                    "3. Задержитесь на 10 - 15 секунд.\n"+
                    "4. Повторите с другой стороны.",
                    LastUsedTime = 0,
-                   ImageUri = "Resources/Upper_Trap_Stretch.gif"
+                   ImageUri = "/Resources/Upper_Trap_Stretch.gif"
                 }
             });
         }

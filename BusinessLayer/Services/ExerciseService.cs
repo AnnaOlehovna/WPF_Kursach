@@ -1,10 +1,11 @@
-﻿using System.Collections.ObjectModel;
-using AutoMapper;
+﻿using AutoMapper;
 using BusinessLayer.Interfaces;
 using BusinessLayer.Models;
 using DataLayer.Entities;
 using DataLayer.Interfaces;
 using DataLayer.Repositories;
+using System;
+using System.Collections.ObjectModel;
 
 namespace BusinessLayer.Services
 {
@@ -36,24 +37,30 @@ namespace BusinessLayer.Services
             return mapperEntityToDTO.Map<ObservableCollection<ExerciseDTO>>(dataBase.Exercises.GetAll());
         }
 
-        public ObservableCollection<ExerciseDTO> GetAllChosenExercises()
+
+        public ExerciseDTO GetExercise(int exerciseId)
         {
-            throw new System.NotImplementedException();
+            return mapperEntityToDTO.Map<ExerciseDTO>(dataBase.Exercises.Get(exerciseId));
         }
 
-        public ObservableCollection<ExerciseDTO> GetRandomChosenExercises(int count)
+        public void UpdateChosenExercises(ExerciseDTO[] exercises)
         {
-            throw new System.NotImplementedException();
-        }
+            foreach (ExerciseDTO ex in exercises)
+            {
+                var exercise = dataBase.Exercises.Get(ex.ExerciseId);
+                exercise.IsChosen = ex.IsChosen;
+                dataBase.Exercises.Update(exercise);
 
-        public void SetExerciseChosen(int exerciseId, bool isChosen)
-        {
-            throw new System.NotImplementedException();
+            }
+            dataBase.Save();
         }
 
         public void UpdateExerciseLastShownTime(int exerciseId)
         {
-            throw new System.NotImplementedException();
+            var exercise = dataBase.Exercises.Get(exerciseId);
+            exercise.LastUsedTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            dataBase.Exercises.Update(exercise);
+            dataBase.Save();
         }
     }
 }

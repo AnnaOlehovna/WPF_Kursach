@@ -63,12 +63,19 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\ExercisesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,13 +84,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\ExercisePresentModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DelegateCommand.cs" />
+    <Compile Include="Utils\IActivateWindow.cs" />
+    <Compile Include="Utils\ICloseWindow.cs" />
+    <Compile Include="ViewModel\ExercisesWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="View\CheckedListItem.cs" />
+    <Compile Include="Model\CheckedListItem.cs" />
+    <Compile Include="View\ExercisesWindow.xaml.cs">
+      <DependentUpon>ExercisesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -113,34 +128,34 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Forward_Stretch.gif" />
+    <Resource Include="Resources\Forward_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Hamstring_Stretch.gif" />
+    <Resource Include="Resources\Hamstring_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Neck_Stretch.gif" />
+    <Resource Include="Resources\Neck_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Overhead_Reach.gif" />
+    <Resource Include="Resources\Overhead_Reach.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shoulder_Pec_Stretch.gif" />
+    <Resource Include="Resources\Shoulder_Pec_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shoulder_Shrug.gif" />
+    <Resource Include="Resources\Shoulder_Shrug.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Torso_Stretch.gif" />
+    <Resource Include="Resources\Torso_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Triceps_Stretch.gif" />
+    <Resource Include="Resources\Triceps_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Upper_Body_Stretch.gif" />
+    <Resource Include="Resources\Upper_Body_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Upper_Trap_Stretch.gif" />
+    <Resource Include="Resources\Upper_Trap_Stretch.gif" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

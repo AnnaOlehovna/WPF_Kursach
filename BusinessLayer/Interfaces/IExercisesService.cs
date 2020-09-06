@@ -6,9 +6,8 @@ namespace BusinessLayer.Interfaces
     public interface IExercisesService
     {
         ObservableCollection<ExerciseDTO> GetAll();
-        ObservableCollection<ExerciseDTO> GetAllChosenExercises();
-        ObservableCollection<ExerciseDTO> GetRandomChosenExercises(int count);
-        void SetExerciseChosen(int exerciseId, bool isChosen);
+        ExerciseDTO GetExercise(int exerciseId);
         void UpdateExerciseLastShownTime(int exerciseId);
+        void UpdateChosenExercises(ExerciseDTO[] exercises);
     }
 }

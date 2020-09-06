@@ -1,0 +1,81 @@
+﻿<Window x:Class="OfficeFitness.View.ExercisesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="ExercisesWindow" Height="600" Width="800" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Foreground" Value="DarkGreen" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="MyContentPresenter" 
+                                      Content="{TemplateBinding Content}"
+                                      HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="#B2999999"/>
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFB4D3A3" Offset="0.375"/>
+                <GradientStop Color="#FF9DDC7C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="1.5*" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <TextBlock FontSize="24" Foreground="DarkGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Script" TextWrapping="Wrap"
+                       Text="{Binding CurrentExercise.Name}"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock FontSize="16" Foreground="DarkGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Script" 
+                       Text="{Binding CurrentExercise.Description}" TextWrapping="Wrap"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.RowSpan="2">
+            <Image gif:ImageBehavior.AnimatedSource="{Binding CurrentExercise.ImageUri}" />
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+            <TextBlock FontSize="36" Foreground="DarkGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Script" 
+                       Text="{Binding TimeFromStart}"/>
+        </Grid>
+
+        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+            <Button Name="bNext" Style="{StaticResource buttonStyle}" FontSize="22"  
+                    Content="Далее" Background="{x:Null}" BorderBrush="{x:Null}" Command="{Binding Path=NextExerciseCommand}" CommandParameter="{Binding Source=ExercisesWindow}"/>
+        </Grid>
+
+    </Grid>
+</Window>

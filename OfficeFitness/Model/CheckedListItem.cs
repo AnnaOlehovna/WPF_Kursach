@@ -17,8 +17,7 @@ namespace OfficeFitness.View
         private bool isChecked;
         private string exerciseName;
         public int ExerciseId { get; set; }
-
-
+        public long LastUsedTime { get; set; }
 
         public string Name
         {

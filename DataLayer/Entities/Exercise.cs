@@ -14,7 +14,5 @@
         public string ImageUri { get; set; }
         public bool IsChosen { get; set; }
 
-
-
     }
 }
