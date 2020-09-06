@@ -27,7 +27,6 @@ namespace DataLayer.Repositories
         public void Update(Exercise entity)
         {
             context.Set<Exercise>().AddOrUpdate(entity);
-
         }
     }
 }

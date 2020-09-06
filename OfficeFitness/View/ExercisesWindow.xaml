@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="ExercisesWindow" Height="600" Width="800" WindowStartupLocation="CenterOwner">
+        Title="Выполнение упражнений" Height="600" Width="800" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style x:Key="buttonStyle" TargetType="Button">
 

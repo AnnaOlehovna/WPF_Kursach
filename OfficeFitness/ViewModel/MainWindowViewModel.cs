@@ -202,6 +202,7 @@ namespace OfficeFitness.ViewModel
 
         private void UpdateInfo()
         {
+            exerciseService = new ExerciseService("ExercisesDbConnection");
             Sections = mapperDTOToPresent.Map<ObservableCollection<CheckedListExerciseItem>>(exerciseService.GetAll());
             timeLeft = selectedInterval;
             OnPropertyChanged("TimeLeft");
